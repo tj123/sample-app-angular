@@ -31,6 +31,7 @@ export class AuthService {
     const appConfig = this.appConfig;
 
     // checks if the username is one of the known usernames, and the password is 'password'
+    //noinspection TypeScriptUnresolvedFunction
     const checkCredentials = () => new Promise<string>((resolve, reject) => {
       const validUsername = this.usernames.indexOf(username) !== -1;
       const validPassword = password === 'password';

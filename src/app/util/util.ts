@@ -8,6 +8,7 @@ export const flattenReduce = (arr, item) => arr.concat(item);
 const guidChar = (c) => c !== 'x' && c !== 'y' ? '-' : Math.floor(Math.random() * 16).toString(16).toUpperCase();
 export const guid = () => 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.split('').map(guidChar).join('');
 // A function that returns a promise which resolves after a timeout
+//noinspection TypeScriptUnresolvedFunction
 export const wait = (delay) => new Promise(resolve => setTimeout(resolve, delay));
 
 export const copy = pattern([

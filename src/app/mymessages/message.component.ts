@@ -120,6 +120,7 @@ export class MessageComponent implements OnInit {
     const nextState = nextMessageId ? 'mymessages.messagelist.message' : 'mymessages.messagelist';
     const params = { messageId: nextMessageId };
 
+    //noinspection TypeScriptUnresolvedFunction
     this.dialog.confirm('Delete?', undefined)
       .then(() => this.messagesService.remove(message))
       .then(() => this.stateService.go(nextState, params, { reload: 'mymessages.messagelist' }));

@@ -40,10 +40,12 @@ export function getFolder(foldersService: FoldersDataService, transition: Transi
   return foldersService.get(transition.params().folderId);
 }
 
+//noinspection TypeScriptUnresolvedVariable
 export function getMessages(messagesService: MessagesDataService, folder: Folder,
                             appConfig: AppConfigService): Promise<Observable<Message[]>> {
   const promise = messagesService.byFolder(folder);
 
+  //noinspection TypeScriptUnresolvedFunction
   return promise.then(messages => appConfig.sort$.map(sortOrder =>
     MessagesDataService.sortedMessages(messages, sortOrder)
   ));

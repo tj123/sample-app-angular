@@ -48,6 +48,7 @@ export class AppConfigService {
   load() {
     try {
       const data = JSON.parse(sessionStorage.getItem('appConfig'));
+      //noinspection TypeScriptUnresolvedFunction
       return Object.assign(this, data);
     } catch (Error) { }
 

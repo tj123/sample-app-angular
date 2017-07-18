@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { TargetState, StateService } from '@uirouter/core';
-import { AuthService } from './global/auth.service';
-import { AppConfigService } from './global/app-config.service';
+import {Component, OnInit, Input} from '@angular/core';
+import {TargetState, StateService} from '@uirouter/core';
+import {AuthService} from './global/auth.service';
+import {AppConfigService} from './global/app-config.service';
 
 /**
  * This component renders a faux authentication UI
@@ -59,14 +59,13 @@ export class LoginComponent {
   @Input() returnTo: TargetState;
 
   usernames: string[];
-  credentials = { username: null, password: null };
+  credentials = {username: null, password: null};
   authenticating: boolean;
   errorMessage: string;
 
   constructor(appConfig: AppConfigService,
               private authService: AuthService,
-              private $state: StateService
-  ) {
+              private $state: StateService) {
     this.usernames = authService.usernames;
 
     this.credentials = {
@@ -87,7 +86,8 @@ export class LoginComponent {
     const returnToOriginalState = () => {
       const state = this.returnTo.state();
       const params = this.returnTo.params();
-      const options = Object.assign({}, this.returnTo.options(), { reload: true });
+      //noinspection TypeScriptUnresolvedFunction
+      const options = Object.assign({}, this.returnTo.options(), {reload: true});
       this.$state.go(state, params, options);
     };
 

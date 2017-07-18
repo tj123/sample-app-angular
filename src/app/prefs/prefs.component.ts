@@ -37,6 +37,7 @@ export class PrefsComponent {
 
   /** After saving preferences to session storage, reload the entire application */
   savePrefs() {
+    //noinspection TypeScriptUnresolvedFunction
     Object.assign(this.appConfig, { restDelay: this.prefs.restDelay }).save();
     document.location.reload(true);
   }

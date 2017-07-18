@@ -58,6 +58,7 @@ export class ComposeComponent implements OnInit {
    */
   ngOnInit() {
     const messageParam = this.transition.params().message;
+    //noinspection TypeScriptUnresolvedFunction
     this.pristineMessage = Object.assign({from: this.appConfig.emailAddress}, messageParam);
     this.message = copy(this.pristineMessage);
   }
@@ -92,6 +93,7 @@ export class ComposeComponent implements OnInit {
 
   /** "Send" the message (save to the 'sent' folder), and then go to the previous state */
   send(message) {
+    //noinspection TypeScriptUnresolvedFunction
     this.messagesService.save(Object.assign(message, {date: new Date(), read: true, folder: 'sent'}))
       .then(() => this.canExit = true)
       .then(() => this.gotoPreviousState());
@@ -99,6 +101,7 @@ export class ComposeComponent implements OnInit {
 
   /** Save the message to the 'drafts' folder, and then go to the previous state */
   save(message) {
+    //noinspection TypeScriptUnresolvedFunction
     this.messagesService.save(Object.assign(message, {date: new Date(), read: true, folder: 'drafts'}))
       .then(() => this.canExit = true)
       .then(() => this.gotoPreviousState());

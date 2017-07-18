@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
         These patterns should help you to to build cohesive, robust apps.  Additionally, this app uses state-vis
         to show the tree of states, and a transition log visualizer.</p>
     
-      <h4>App Overview</h4>
+      <h4>呵呵这是什么的啊</h4>
       <p>
         First, start exploring the application's functionality at a high level by activating
         one of the three submodules: Messages, Contacts, or Preferences. If you are not already logged in,

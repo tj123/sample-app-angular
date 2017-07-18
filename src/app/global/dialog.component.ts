@@ -28,9 +28,11 @@ export class DialogComponent implements OnInit {
   yesMsg: string;
   noMsg: string;
 
+  //noinspection TypeScriptUnresolvedVariable
   promise: Promise<any>;
 
   constructor() {
+    //noinspection TypeScriptUnresolvedFunction
     this.promise = new Promise((resolve, reject) => {
       this.yes = () => {
         this.visible = false;

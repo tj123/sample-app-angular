@@ -20,6 +20,7 @@ export class DialogService {
     component.noMsg = noMsg;
 
     const destroy = () => componentRef.destroy();
+    //noinspection TypeScriptUnresolvedFunction
     component.promise.then(destroy, destroy);
     return component.promise;
   }

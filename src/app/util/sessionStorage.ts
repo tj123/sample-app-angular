@@ -15,6 +15,7 @@ import { AppConfigService } from '../global/app-config.service';
  */
 export class SessionStorage<T> {
   // data
+  //noinspection TypeScriptUnresolvedVariable
   _data: Promise<T[]>;
   _idProp: string;
   _eqFn: (a: T, b: T) => boolean;
@@ -48,74 +49,91 @@ export class SessionStorage<T> {
     }
 
     // Create a promise for the data; Either the existing data from session storage, or the initial data via $http request
+    //noinspection TypeScriptUnresolvedVariable,TypeScriptUnresolvedFunction
     this._data = (data ? Promise.resolve(data) : fetch(sourceUrl)
         .then(resp => resp.json()))
         .then(this._commit.bind(this))
         .then(() => JSON.parse(sessionStorage.getItem(sessionStorageKey)));
   }
 
+  //noinspection TypeScriptUnresolvedVariable
   /** Saves all the data back to the session storage */
   _commit(data: T[]): Promise<T[]> {
     sessionStorage.setItem(this.sessionStorageKey, JSON.stringify(data));
+    //noinspection TypeScriptUnresolvedVariable
     return Promise.resolve(data);
   }
 
+  //noinspection TypeScriptUnresolvedVariable
   /** Helper which simulates a delay, then provides the `thenFn` with the data */
   all(): Promise<T[]> {
     const delay = this.appConfig.restDelay;
     return wait(delay).then(() => this._data);
   }
 
+  //noinspection TypeScriptUnresolvedVariable
   /** Given a sample item, returns a promise for all the data for items which have the same properties as the sample */
   search(exampleItem): Promise<T[]> {
     const contains = (search, inString) =>
         ('' + inString).indexOf('' + search) !== -1;
     const matchesExample = (example, item) =>
         Object.keys(example).reduce((memo, key) => memo && contains(example[key], item[key]), true);
+    //noinspection TypeScriptUnresolvedFunction
     return this.all().then(items =>
         items.filter(matchesExample.bind(null, exampleItem)));
   }
 
+  //noinspection TypeScriptUnresolvedVariable
   /** Returns a promise for the item with the given identifier */
   get(id): Promise<T> {
+    //noinspection TypeScriptUnresolvedFunction
     return this.all().then(items =>
         items.find(item => item[this._idProp] === id));
   }
 
+  //noinspection TypeScriptUnresolvedVariable
   /** Returns a promise to save the item.  It delegates to put() or post() if the object has or does not have an identifier set */
   save(item: T): Promise<T>  {
     return item[this._idProp] ? this.put(item) : this.post(item);
   }
 
+  //noinspection TypeScriptUnresolvedVariable
   /** Returns a promise to save (POST) a new item.   The item's identifier is auto-assigned. */
   post(item: T): Promise<T> {
     item[this._idProp] = guid();
+    //noinspection TypeScriptUnresolvedFunction
     return this.all()
       .then(items => pushToArr(items, item))
       .then(this._commit.bind(this))
       .then(() => item);
   }
 
+  //noinspection TypeScriptUnresolvedVariable
   /** Returns a promise to save (PUT) an existing item. */
   put(item: T, eqFn = this._eqFn): Promise<T> {
+    //noinspection TypeScriptUnresolvedFunction
     return this.all().then(items => {
       const idx = items.findIndex(eqFn.bind(null, item));
       if (idx === -1) {
         throw Error(`${item} not found in ${this}`);
       }
       items[idx] = item;
+      //noinspection TypeScriptUnresolvedFunction
       return this._commit(items).then(() => item);
     });
   }
 
+  //noinspection TypeScriptUnresolvedVariable
   /** Returns a promise to remove (DELETE) an item. */
   remove(item: T, eqFn = this._eqFn): Promise<T> {
+    //noinspection TypeScriptUnresolvedFunction
     return this.all().then(items => {
       const idx = items.findIndex(eqFn.bind(null, item));
       if (idx === -1) {
         throw Error(`${item} not found in ${this}`);
       }
       items.splice(idx, 1);
+      //noinspection TypeScriptUnresolvedFunction
       return this._commit(items).then(() => item);
     });
   }
