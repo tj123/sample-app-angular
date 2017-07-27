@@ -26,7 +26,6 @@ button.btn i + span {
   flex: 0 1 auto;
 }
 
-
 .home.buttons {
   display: flex;
   flex-flow: row wrap;
@@ -58,7 +57,7 @@ button.btn i + span {
 }
 
 .navheader .nav-tabs li.active a {
-  border-color: lightgray lightgray rgba(0,0,0,0) lightgray ;
+  border-color: lightgray lightgray rgba(0, 0, 0, 0) lightgray;
   background-color: #f7f7f7;
 }
 
@@ -75,7 +74,7 @@ button.btn i + span {
 
 .navheader .logged-in-user:hover div.hoverdrop {
   display: flex;
-  flex-direction:row-reverse;
+  flex-direction: row-reverse;
 }
 
 /* my messages */
@@ -92,15 +91,13 @@ button.btn i + span {
   max-height: 200px;
 }
 
-
-
-
 /* selection lists */
 .selectlist {
   margin: 0;
   padding: 1.5em 0;
   background-color: #DDD;
 }
+
 .selectlist a {
   display: block;
   color: black;
@@ -108,34 +105,31 @@ button.btn i + span {
   text-decoration: none;
   font-size: small;
 }
+
 .selectlist .selected {
   background-color: cornflowerblue;
 }
+
 .selectlist .selected a {
   color: white;
 }
+
 .selectlist i.fa {
   width: 1.35em;
 }
-
-
 
 /* folder list */
 .selectlist .folder.selected i.fa:before {
   content: "\f115";
 }
+
 .selectlist .folder:not(.selected) i.fa:before {
   content: "\f114";
 }
 
-
-
 .ellipsis {
   text-overflow: ellipsis;
 }
-
-
-
 
 /* message list */
 
@@ -151,7 +145,7 @@ button.btn i + span {
 
 .messagelist table {
   table-layout: fixed;
-  width:100%;
+  width: 100%;
 }
 
 .messagelist thead td {
@@ -187,25 +181,33 @@ button.btn i + span {
   color: white;
 }
 
-.messagelist table td:nth-child(1){ width: 1.75em; }
-.messagelist table td:nth-child(2){ width: 21%; }
-.messagelist table td:nth-child(3){ width: 62%; }
-.messagelist table td:nth-child(4){ width: 15%; }
+.messagelist table td:nth-child(1) {
+  width: 1.75em;
+}
+
+.messagelist table td:nth-child(2) {
+  width: 21%;
+}
+
+.messagelist table td:nth-child(3) {
+  width: 62%;
+}
+
+.messagelist table td:nth-child(4) {
+  width: 15%;
+}
 
 .messagelist thead tr:first-child {
   /*position:absolute;*/
 }
 
-.messagelist tbody tr:first-child td{
+.messagelist tbody tr:first-child td {
   /*padding-top:28px;*/
 }
 
-
-
-
 /* message content */
 
-.message .header,.body {
+.message .header, .body {
   padding: 1em 2em;
 }
 
@@ -217,13 +219,11 @@ button.btn i + span {
   align-items: baseline;
 }
 
-
 .message .header .line2 {
   display: flex;
   flex-flow: column;
   justify-content: space-between;
 }
-
 
 .compose .header label {
   padding: 0 1em;
@@ -234,6 +234,7 @@ button.btn i + span {
   background-color: lightgray;
   height: 100%;
 }
+
 .compose .body textarea {
   width: 100%;
   border: 0;
@@ -244,10 +245,6 @@ button.btn i + span {
   padding: 1em 0;
   float: right;
 }
-
-
-
-
 
 .contact {
   padding: 1em 3em;
@@ -270,10 +267,6 @@ button.btn i + span {
 .contact .details input {
   flex: 1 1 auto;
 }
-
-
-
-
 
 .dialog {
   position: fixed;
@@ -320,12 +313,15 @@ button.btn i + span {
   top: 4em;
 }
 
-
 .bounce-horizontal {
   animation: bounce-horizontal 0.5s alternate infinite;
 }
 
 @keyframes bounce-horizontal {
-  0% { left: 1.5em; }
-  100% { left: 0.5em; }
+  0% {
+    left: 1.5em;
+  }
+  100% {
+    left: 0.5em;
+  }
 }
